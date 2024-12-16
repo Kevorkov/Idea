@@ -1,17 +1,19 @@
 {
-    "name": "ideanick",
-    "private": true,
-    "version": "0.0.0",
-    
+  "name": "ideanick",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
     "b": "pnpm --filter @ideanick/backend",
     "w": "pnpm --filter @ideanick/webapp",
     "dev": "pnpm -r --parallel dev",
     "types": "concurrently 'pnpm b types' 'pnpm w types'",
-    "prettify": "pnpm -r --parallel prettify"
+    "prettify": "pnpm -r --parallel prettify",
+    "prepare": "husky"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
     "prettier": "^3.0.2",
     "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
