@@ -2,15 +2,21 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { TrpcProvider } from './lib/trpc'
 import { AllIdeasPage } from './pages/AllIdeasPage'
 import { ViewIdeaPage } from './pages/ViewIdeaPage'
-import { getAllIdeasRoute, getViewIdeaRoute, viewIdeaRouteParams } from './lib/rotes'
+import * as routes from './lib/routes'
+import { Layout } from './components/Layout'
+import './styles/global.scss'
+import { NewIdeaPage } from './pages/NewIdeaPage'
 
 export const App = () => {
   return (
     <TrpcProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={getAllIdeasRoute()} element={<AllIdeasPage />} />
-          <Route path={getViewIdeaRoute(viewIdeaRouteParams)} element={<ViewIdeaPage />} />
+          <Route element={<Layout />}>
+            <Route path={routes.getAllIdeasRoute()} element={<AllIdeasPage />} />
+            <Route path={routes.getNewIdeasRoute()} element={<NewIdeaPage />} />
+            <Route path={routes.getViewIdeaRoute(routes.viewIdeaRouteParams)} element={<ViewIdeaPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TrpcProvider>
