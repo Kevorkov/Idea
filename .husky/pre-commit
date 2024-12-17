@@ -1,2 +1,2 @@
 lint-staged pnpm lint-staged
-
+pnpm w stylecheck
